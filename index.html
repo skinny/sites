@@ -1,6 +1,8 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-59741-17"></script>
     <script>
@@ -16,7 +18,7 @@
 
 
     <title>Heeft Mark al AutoPilot ?</title>
-    <link href="https://fonts.googleapis.com/css?family=Bungee+Shade|Lobster+Two&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Bungee+Shade|Lobster+Two&display=swap" rel="stylesheet">
     <style type="text/css">
         html,
         body,
@@ -31,15 +33,21 @@
         body {
             background-color: #333;
             color: #eee;
-            font-size: 3em;
+            font-size: 1.1em;
         }
 
         h1 {
             font-size: 4em;
             font-family: 'Bungee Shade';
-            width: 100%;
+
             text-align: center;
             padding: 0px;
+        }
+
+        @media screen and (min-width: 601px) {
+            body {
+                font-size: 2em;
+            }
         }
 
         .nee {
@@ -50,33 +58,70 @@
             color: #3cb371;
         }
 
-        p ,img{
-            font-family: 'Lobster Two';
+        p,
+        img {
+            font-family: 'Roboto';
             width: 100%;
             text-align: center;
+            line-height: 1.3em;
         }
 
         .container {
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 100%;
+
             height: 100vh;
+            
         }
 
-        .item {}
+        .timer {
+            font-size: 0.7em;
+            font-style: italic;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <div>
+            <img style="margin-top: 40px;" src="https://media.giphy.com/media/zIjYSIA6Nq8us/giphy.gif" />
             <h1 class="nee">Nope</h1>
             <p>Mark heeft nog <span class="nee">geen</span> AutoPilot!</p>
-            <img style="margin-top: 40px;" src="https://media.giphy.com/media/zIjYSIA6Nq8us/giphy.gif" />
+
+
+            <p class="timer">Om precies te zijn, al <span id="timer" class="nee"></span> dagen niet</p>
+
         </div>
     </div>
     </div>
+    <script>
+
+        const elapsedTime = () => {
+            'use strict';
+
+            const since = 1543104000000, // Saturday, 08-Apr-17 21:00:00 UTC
+                elapsed = (new Date().getTime() - since) / 1000;
+
+            if (elapsed >= 0) {
+                const diff = {};
+
+                diff.days = Math.floor(elapsed / 86400);
+                diff.hours = Math.floor(elapsed / 3600 % 24);
+                diff.minutes = Math.floor(elapsed / 60 % 60);
+                diff.seconds = Math.floor(elapsed % 60);
+
+                let message = `${diff.days}`;
+                message = message.replace(/(?:0. )+/, '');
+                document.getElementById("timer").innerHTML = message;
+            }
+
+        };
+
+        window.onload = function () {
+            elapsedTime();
+        }
+    </script>
 </body>
 
 </html>
