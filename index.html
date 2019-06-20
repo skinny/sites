@@ -18,7 +18,7 @@
 
 
     <title>Heeft Mark al AutoPilot ?</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto|Bungee+Shade|Lobster+Two&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Bungee+Shade|Montserrat&display=swap" rel="stylesheet">
     <style type="text/css">
         html,
         body,
@@ -36,6 +36,13 @@
             font-size: 1.1em;
         }
 
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat';
+            text-align: center;
+        }
+
         h1 {
             font-size: 4em;
             font-family: 'Bungee Shade';
@@ -44,11 +51,6 @@
             padding: 0px;
         }
 
-        @media screen and (min-width: 601px) {
-            body {
-                font-size: 2em;
-            }
-        }
 
         .nee {
             color: #d0513a;
@@ -60,39 +62,49 @@
 
         p,
         img {
-            font-family: 'Roboto';
+            font-family: 'Montserrat';
             width: 100%;
             text-align: center;
             line-height: 1.3em;
         }
 
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            height: 100vh;
-            
+            margin: auto;
+            width: 95%;
         }
 
         .timer {
             font-size: 0.7em;
             font-style: italic;
         }
+
+        @media screen and (min-width: 601px) {
+            body {
+                font-size: 2em;
+            }
+
+            .container {
+                width: 50%;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div>
-            <img style="margin-top: 40px;" src="https://media.giphy.com/media/zIjYSIA6Nq8us/giphy.gif" />
-            <h1 class="nee">Nope</h1>
-            <p>Mark heeft nog <span class="nee">geen</span> AutoPilot!</p>
+        <h1 class="nee">Nope</h1>
+        <img style="margin-top: 40px;" src="https://media.giphy.com/media/zIjYSIA6Nq8us/giphy.gif" />
+
+        <p>Mark heeft nog <span class="nee">geen</span> AutoPilot!</p>
 
 
-            <p class="timer">Om precies te zijn, al <span id="timer" class="nee"></span> dagen niet</p>
+        <p class="timer">Om precies te zijn, al <span id="timer" class="nee"></span> dagen niet</p>
 
-        </div>
+        <h3 style="margin-top: 3em;">Een interessant grafiekje..</h3>
+
+        <img src="img/stats.png" />
+        <p style="margin: 3em 0em; font-size: 0.6em;">Kom snel nog een keer kijken, <br />misschien heeft Mark dan meer
+            geluk</p>
     </div>
     </div>
     <script>
